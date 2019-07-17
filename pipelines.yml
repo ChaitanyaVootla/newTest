@@ -28,6 +28,15 @@ resources:
       fileLocation: 'fileLocation_test'
       fileName: 'fileName_test'
       fileDateTime: 'fileDateTime_test'
+  - name: VmCluster
+    type: VmCluster
+    configuration:
+      sshKey: ssh_key_test
+      targets:
+        1.2.3.4
+        1.2.3.5
+        1.2.3.6
+
 pipelines:
   - name: res_test
     steps:
@@ -42,6 +51,7 @@ pipelines:
             - name: myBuildInfo
             - name: webhookIntegrationResource
             - name: RemoteFile
+            - name: VmCluster
         execution:
           onExecute:
             - echo "asd"
