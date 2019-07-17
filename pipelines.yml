@@ -16,6 +16,11 @@ resources:
       sourceArtifactory: art
       buildName: myBuild
       buildNumber: 123
+  - name: webhookIntegrationResource
+    type: Webhook
+    configuration:
+      webhookName: myInternal
+      payload: "webhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegration"
 pipelines:
   - name: res_test
     steps:
@@ -28,6 +33,7 @@ pipelines:
             - name: Image_test
             - name: gitResource_test
             - name: myBuildInfo
+            - name: webhookIntegrationResource
         execution:
           onExecute:
             - echo "asd"
