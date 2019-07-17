@@ -27,6 +27,7 @@ pipelines:
           inputResources:
             - name: Image_test
             - name: gitResource_test
+            - name: myBuildInfo
         execution:
           onExecute:
             - echo "asd"
