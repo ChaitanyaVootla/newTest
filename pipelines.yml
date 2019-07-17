@@ -66,6 +66,7 @@ pipelines:
             - name: webhookIntegrationResource
             - name: RemoteFile
             - name: VmCluster
+            - name: Aql
         execution:
           onExecute:
             - echo "asd"
