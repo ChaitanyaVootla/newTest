@@ -33,9 +33,9 @@ resources:
     configuration:
       sshKey: ssh_key_test
       targets:
-        1.2.3.4
-        1.2.3.5
-        1.2.3.6
+        - 1.2.3.4
+        - 1.2.3.5
+        - 1.2.3.6
 
 pipelines:
   - name: res_test
