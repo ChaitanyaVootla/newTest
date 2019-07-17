@@ -21,6 +21,13 @@ resources:
     configuration:
       webhookName: myInternal
       payload: "webhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegration"
+  - name: RemoteFile
+    type: RemoteFile
+    configuration:      
+      source: dummyFileServer
+      fileLocation: 'fileLocation_test'
+      fileName: 'fileName_test'
+      fileDateTime: 'fileDateTime_test'
 pipelines:
   - name: res_test
     steps:
@@ -34,6 +41,7 @@ pipelines:
             - name: gitResource_test
             - name: myBuildInfo
             - name: webhookIntegrationResource
+            - name: RemoteFile
         execution:
           onExecute:
             - echo "asd"
