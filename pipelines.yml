@@ -1,11 +1,11 @@
 resources:
-  - name: Image
+  - name: Image_test
     type: Image
     configuration:
        registry: docker_chaitanya
        imageName: imageRepo/imageName
        imageTag: initial
-  - name: gitResource
+  - name: gitResource_test
     type: GitRepo
     configuration:
       gitProvider: git_chaitanya
@@ -19,8 +19,8 @@ pipelines:
           affinityGroup: bldGroupTest
           priority: 0
           inputResources:
-            - name: Image
-            - name: gitResource
+            - name: Image_test
+            - name: gitResource_test
         execution:
           onExecute:
             - echo "asd"
