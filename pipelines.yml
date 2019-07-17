@@ -10,6 +10,12 @@ resources:
     configuration:
       gitProvider: git_chaitanya
       path: ChaitanyaVootla/ymlTest
+  - name: myBuildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildName: myBuild
+      buildNumber: 123
 pipelines:
   - name: res_test
     steps:
