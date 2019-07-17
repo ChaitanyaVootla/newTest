@@ -1,0 +1,26 @@
+resources:
+  - name: Image
+    type: Image
+    configuration:
+       registry: docker_chaitanya
+       imageName: imageRepo/imageName
+       imageTag: initial
+  - name: gitResource
+    type: GitRepo
+    configuration:
+      gitProvider: git_chaitanya
+      path: ChaitanyaVootla/ymlTest
+pipelines:
+  - name: res_test
+    steps:
+      - name: job
+        type: Bash
+        configuration:
+          affinityGroup: bldGroupTest
+          priority: 0
+          inputResources:
+            - name: Image
+            - name: gitResource
+        execution:
+          onExecute:
+            - echo "asd"
