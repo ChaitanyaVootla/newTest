@@ -36,7 +36,21 @@ resources:
         - 1.2.3.4
         - 1.2.3.5
         - 1.2.3.6
-
+  - name: Aql
+    type: Aql
+    configuration:
+      sourceArtifactory: art
+      query: 'query_test'
+      addedProperties: #optional
+        key1: val1
+        key2: val2
+      mappings: #optional
+        - name: mapping1
+          input: asd
+          output: asd
+        - name: mapping2
+          input: asd
+          output: asd
 pipelines:
   - name: res_test
     steps:
