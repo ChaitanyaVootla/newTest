@@ -51,6 +51,13 @@ resources:
         - name: mapping2
           input: asd
           output: asd
+  - name: ReleaseBundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: dist_test
+      name: 'name_test'
+      version: 'version_test'
+      isSigned: false
 pipelines:
   - name: res_test
     steps:
@@ -67,6 +74,7 @@ pipelines:
             - name: RemoteFile
             - name: VmCluster
             - name: Aql
+            - name: ReleaseBundle
         execution:
           onExecute:
             - echo "asd"
