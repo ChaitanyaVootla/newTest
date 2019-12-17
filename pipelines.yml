@@ -1,92 +1,24 @@
 resources:
-  - name: Image_test
-    type: Image
-    configuration:
-       registry: docker_chaitanya
-       imageName: imageRepo/imageName
-       imageTag: initial
-  - name: gitResource_test
+  - name: r_github 
     type: GitRepo
     configuration:
-      gitProvider: git_chaitanya
-      path: ChaitanyaVootla/ymlTest
-  - name: myBuildInfo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art
-      buildName: myBuild
-      buildNumber: 123
-  - name: webhookIntegrationResource
-    type: Webhook
-    configuration:
-      webhookName: myInternal
-      payload: "webhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegrationwebhookIntegration"
-  - name: RemoteFile
-    type: RemoteFile
-    configuration:      
-      source: dummyFileServer
-      fileLocation: 'fileLocation_test'
-      fileName: 'fileName_test'
-      fileDateTime: 'fileDateTime_test'
-  - name: VmCluster
-    type: VmCluster
-    configuration:
-      sshKey: ssh_key_test
-      targets:
-        - 1.2.3.4
-        - 1.2.3.5
-        - 1.2.3.6
-  - name: Aql
-    type: Aql
-    configuration:
-      sourceArtifactory: art
-      query: 'query_test'
-      addedProperties: #optional
-        key1: val1
-        key2: val2
-      mappings: #optional
-        - name: mapping1
-          input: asd
-          output: asd
-        - name: mapping2
-          input: asd
-          output: asd
-  - name: ReleaseBundle
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist_test
-      name: 'name_test'
-      version: 'version_test'
-      isSigned: false
-  - name: DistributionRule
-    type: DistributionRule
-    configuration:     
-      sourceDistribution: dist_test     
-      serviceName: 'service_test'
-      siteName: 'site_name'
-      cityName: 'city_name'
-      countryCodes:
-        - 'IN'
-        - 'AUS'
-
+      gitProvider: gitResource
+      path: ChaitanyaVootla/newTest
 pipelines:
-  - name: res_test
+  - name: pipeline_test
     steps:
-      - name: job
+      - name: cpp
         type: Bash
         configuration:
-          affinityGroup: bldGroupTest
-          priority: 0
           inputResources:
-            - name: Image_test
-            - name: gitResource_test
-            - name: myBuildInfo
-            - name: webhookIntegrationResource
-            - name: RemoteFile
-            - name: VmCluster
-            - name: Aql
-            - name: ReleaseBundle
-            - name: DistributionRule
+            - name: r_github
+          runtime:
+            type: image
+            image:
+              auto:
+                language: go
+                versions: 
+                  - 1.11.1
         execution:
           onExecute:
-            - echo "asd"
+            - printenv
